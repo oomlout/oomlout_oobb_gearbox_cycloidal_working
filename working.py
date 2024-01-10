@@ -40,8 +40,8 @@ def make_scad(**kwargs):
 
 
     #make_scad_drive_shaft_input(**kwargs)
-    #make_scad_drive_shaft_output_inner(**kwargs)
-    make_scad_drive_shaft_output_outer(**kwargs)
+    make_scad_drive_shaft_output_inner(**kwargs)
+    #make_scad_drive_shaft_output_outer(**kwargs)
     #make_scad_inner_rotor(**kwargs)
     #kwargs["thickness"] = 12
     #make_scad_outer_rotor(**kwargs)
@@ -106,7 +106,7 @@ def make_scad_drive_shaft_output_inner(**kwargs):
 
     p3 = copy.deepcopy(kwargs)
     p3["center_offset"] = False
-    get_drive_shaft_input(thing, **kwargs)
+    get_drive_shaft_input(thing, **p3)
 
     save_type = kwargs.get("save_type", "all")
     overwrite = True

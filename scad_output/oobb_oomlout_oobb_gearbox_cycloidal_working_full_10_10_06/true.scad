@@ -13,7 +13,7 @@ difference() {
 						}
 						translate(v = [0, 0, -3.0000000000]) {
 							linear_extrude(height = 6) {
-								offset(r = -0.5000000000) {
+								offset(r = -0.2500000000) {
 									cycloid(lobe_number = 30, radius_offset = 1.5000000000, radius_pin = 3.0000000000);
 								}
 							}
@@ -418,7 +418,7 @@ difference() {
 		}
 		translate(v = [0, 0, -3.0000000000]) {
 			linear_extrude(height = 6) {
-				offset(r = -0.5000000000) {
+				offset(r = -0.2500000000) {
 					cycloid(lobe_number = 30, radius_offset = 1.5000000000, radius_pin = 3.0000000000);
 				}
 			}
