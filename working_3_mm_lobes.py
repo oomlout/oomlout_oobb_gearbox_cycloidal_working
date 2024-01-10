@@ -44,7 +44,7 @@ def make_scad(**kwargs):
     #make_scad_drive_shaft_output_inner(**kwargs)
     #make_scad_drive_shaft_output_outer(**kwargs)
     #make_scad_inner_rotor(**kwargs)
-    #kwargs["thickness"] = 12
+    kwargs["thickness"] = 12
     make_scad_outer_rotor(**kwargs)
     
     #make_scad_full(**kwargs)
