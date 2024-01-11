@@ -41,11 +41,11 @@ def make_scad(**kwargs):
 
 
     #make_scad_drive_shaft_input(**kwargs)
-    #make_scad_drive_shaft_output_inner(**kwargs)
-    #make_scad_drive_shaft_output_outer(**kwargs)
+    make_scad_drive_shaft_output_inner(**kwargs)
+    make_scad_drive_shaft_output_outer(**kwargs)
     #make_scad_inner_rotor(**kwargs)
     kwargs["thickness"] = 12
-    make_scad_outer_rotor(**kwargs)
+    #make_scad_outer_rotor(**kwargs)
     
     #make_scad_full(**kwargs)
 
@@ -417,6 +417,37 @@ def get_drive_shaft_output_outer(thing, **kwargs):
     oobb_base.append_full(thing,**p3)
 
     
+    #add oobb holes
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "n"
+    p3["shape"] = f"oobb_hole"
+    p3["radius_name"] = "m3"
+    #p3["depth"] = depth
+    poss = []
+    if True:
+        offset = 15.556        
+        pos1 = copy.deepcopy(pos)
+        #pos1[2] += -depth/2
+        pos11 = copy.deepcopy(pos1)
+        pos11[0] += offset
+        pos11[1] += offset
+        poss.append(pos11)
+        pos12 = copy.deepcopy(pos1)
+        pos12[0] += -offset
+        pos12[1] += offset
+        poss.append(pos12)
+        pos13 = copy.deepcopy(pos1)
+        pos13[0] += offset
+        pos13[1] += -offset
+        poss.append(pos13)
+        pos14 = copy.deepcopy(pos1)
+        pos14[0] += -offset
+        pos14[1] += -offset
+        poss.append(pos14)
+    p3["pos"] = poss
+    p3["m"] = "#"
+    oobb_base.append_full(thing,**p3)
+
     #put into a rotation object
     components_second = copy.deepcopy(thing["components"])
     return_value_2 = {}
@@ -440,36 +471,7 @@ def get_drive_shaft_output_outer(thing, **kwargs):
     
 
 
-    #add oobb holes
-    p3 = copy.deepcopy(kwargs)
-    p3["type"] = "n"
-    p3["shape"] = f"oobb_hole"
-    p3["radius_name"] = "m3"
-    p3["depth"] = depth
-    poss = []
-    if True:
-        offset = 15.556        
-        pos1 = copy.deepcopy(pos)
-        pos1[2] += -depth/2
-        pos11 = copy.deepcopy(pos1)
-        pos11[0] += offset
-        pos11[1] += offset
-        poss.append(pos11)
-        pos12 = copy.deepcopy(pos1)
-        pos12[0] += -offset
-        pos12[1] += offset
-        poss.append(pos12)
-        pos13 = copy.deepcopy(pos1)
-        pos13[0] += offset
-        pos13[1] += -offset
-        poss.append(pos13)
-        pos14 = copy.deepcopy(pos1)
-        pos14[0] += -offset
-        pos14[1] += -offset
-        poss.append(pos14)
-    p3["pos"] = poss
-    #p3["m"] = "#"
-    oobb_base.append_full(thing,**p3)
+    
 
 def make_scad_full(**kwargs):
   
