@@ -41,10 +41,10 @@ def make_scad(**kwargs):
 
 
     #make_scad_drive_shaft_input(**kwargs)
-    make_scad_drive_shaft_output_inner(**kwargs)
-    make_scad_drive_shaft_output_outer(**kwargs)
-    #make_scad_inner_rotor(**kwargs)
-    kwargs["thickness"] = 12
+    #make_scad_drive_shaft_output_inner(**kwargs)
+    #make_scad_drive_shaft_output_outer(**kwargs)
+    make_scad_inner_rotor(**kwargs)
+    #kwargs["thickness"] = 12
     #make_scad_outer_rotor(**kwargs)
     
     #make_scad_full(**kwargs)
@@ -758,7 +758,8 @@ def get_inner_rotor(thing, **kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_hole"        
-        p3["radius"] = 3
+        r = (3 + (radius_offset * 2))/2 
+        p3["radius"] = r
         p3["pos"] = poss
         #p3["m"] = "#"
         oobb_base.append_full(thing,**p3)
